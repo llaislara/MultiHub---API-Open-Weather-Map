@@ -1,0 +1,608 @@
+/************************************************
+**************** PÁGINA INICIAL *****************
+************************************************/
+
+#initial-screen {
+  justify-content: center;
+  align-items: center;
+  margin-top: -11vh !important;
+  width: 1000vh !important;
+  height: 100vh !important;
+  cursor: pointer;
+  margin: 0;
+}
+
+#initial-screen h2{
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+  font-size: 2vh;
+  color: white;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+/************************************************
+**************** LOGIN PASSWORD *****************
+************************************************/
+
+#login-container {
+  display: block;
+  margin-top: -11vh !important;
+  width: 1500vh !important;
+  height: 100vh !important;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(1vh);
+  display: none;
+  overflow: hidden;
+}
+
+#password-input {
+  margin-left: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#password-input input {
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  border: 0vh;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  width: 7vh;
+  height: 7vh;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  margin: 0 0.5%;
+}
+
+#password-input.error input {
+  border: 0.1px solid #ff5454;
+}
+
+#error-message {
+  color: #bfbfbf;
+  font-size: 1em;
+  margin: 2vh 23vh 0vh 0vh;
+}
+
+#login-form {
+  margin-top: 24%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+#login-form p { 
+    font-size: 1.5vh;
+    color: #ffffff63;
+    margin: 2vh 23vh 0vh 0vh;
+}
+
+#logout-button {
+  position: absolute;
+  top: 7%;
+  right: 2%;
+  width: 20vh;
+  background: none;
+  border: none;
+  color: #ffffffd9;
+  font-size: 1.5vh;
+  cursor: pointer;
+}
+
+#initial-screen,
+#login-container,
+#app-container {
+  transition: opacity 0.7s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+#initial-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+/************************************************
+**************** LOGIN PASSWORD *****************
+************************************************/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1485470733090-0aae1788d5af?q=80&w=2117&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 5%;
+  overflow-x: hidden; 
+  scroll-behavior: smooth;
+}
+
+/************************************************
+******************** SCROLL  ********************
+************************************************/
+
+::-webkit-scrollbar {
+  width: 1.3vh;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 2vh;
+  background-color: #161616; 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; 
+}
+
+/************************************************
+****************** INFO CONTAINER **************
+************************************************/
+
+#app-container {
+  display: none;
+  width: 85%;
+  margin-top: 5%;
+}
+
+#infoContainer {
+  margin-left: 1% !important;
+  font-size: 13vh !important;
+  margin-bottom: 10px !important;
+  text-align: left !important;
+  color: white !important;
+}
+
+.row {
+  font-family: 'Konkhmer Sleokchher', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.current-weather {
+  font-weight: 300 !important;
+  font-size: 2vh !important;
+  margin-top: 97px;
+  margin-right: -14px !important;
+}
+
+.weather-info {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0px;
+  margin-top: 7vh !important;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.weatherList {
+  margin-top: 10px;
+}
+
+#clock,
+#current-weather,
+#current-day,
+#current-date,
+#current-city {
+  color: white;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+#current-day,
+#current-date,
+#current-city,
+#current-weather {
+  font-size: 2.35vh;
+  margin-bottom: 1%;
+}
+
+
+/************************************************
+**************** NEWS/FILMS SECTION *************
+************************************************/
+
+.sectionTitle{
+  font-size: 2vh;
+  color: white;
+  margin-bottom: 17px;
+  text-align: left;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  margin: 3% 0 0 1.3% !important;
+
+}
+
+/************************************************
+*************** WEATHER FORECAST ****************
+************************************************/
+
+.carousel-wrap{
+  display: flex;
+}
+
+.weatherInf {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.2px);
+  position: relative;
+  display: inline-block;
+  margin: 3% 1% 3% 1.2%;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out;
+  width: 30vh !important;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.weatherInf:hover {
+  transform: scale(1.1);
+}
+
+.weatherInf .item {
+  font-size: 2vh !important;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 9px rgba(0, 0, 0, 0.5);
+  margin: 20% auto 20% auto;
+}
+
+
+/************************************************
+********************** MAIN *********************
+************************************************/
+
+.tag {
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(31.400000000000006px);
+  width: 11vh;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  margin: 2% 16px 2% 1%;
+  padding: 10px 21px 13px 20px;
+  color: white;
+  font-size: 1.7vh;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tag:hover {
+  transform: scale(1.1);
+}
+
+h1.tag {
+  margin-left: 0;
+  margin-right: 0
+}
+
+.tag-sm {
+  font-size: .7em;
+  display: inline-block;
+  letter-spacing: .15ch;
+  font-weight: 400
+}
+
+.tag-lg {
+  font-size: 1.2em;
+  border-radius: 4px
+}
+
+.tag-bg {
+  background: var(--background)
+}
+
+
+/************************************************
+******************** APPS SECTION ***************
+************************************************/
+
+.appssection {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto 0px auto;
+}
+
+.appSection {
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin: 0% 1% 0% auto;
+  padding: 0;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out;
+  width: 30vh !important;
+  height: 23vh !important;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.appSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1; 
+}
+
+.itemApp{
+  margin: 2% auto 2% 10%; 
+}
+
+.itemApp p {
+  font-size: 1.7vh;
+  font-weight: 100;
+  color: #ffffffb2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+}
+
+.itemApp h3 {
+  font-size: 2vh; 
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.appText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.appSection:hover::before {
+  opacity: 0;
+}
+
+.appSection:hover .appText {
+  opacity: 1;
+}
+
+.appSection:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+#weather-section {
+  background-image: url('https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#music-section {
+  background-image: url('https://images.unsplash.com/photo-1500702790369-fe461685b3c8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#games-section {
+  background-image: url('https://plus.unsplash.com/premium_photo-1687854992749-e15cba89631d?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#calculator-section {
+  background-image: url('https://images.unsplash.com/photo-1653361860636-36f2fb89eab9?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+#notes-section {
+  background-image: url('https://images.unsplash.com/photo-1518976024611-28bf4b48222e?q=80&w=1370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+/************************************************
+********************** NEWS SECTION *************
+************************************************/
+
+.content-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.news-card {
+  margin: 0.5rem;
+  position: relative;
+  height: 12rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  flex: 1;
+  min-width: 290px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 900px) {
+  .news-card {
+    height: 20rem;
+  }
+}
+
+.news-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 80%);
+  z-index: 0;
+}
+
+.news-card__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.news-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 3s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.news-card__text-wrapper {
+  position: absolute;
+  bottom: 0rem;
+  padding: 1rem;
+  color: white;
+  transition: background-color 1.5s ease;
+}
+
+.news-card__title {
+  font-size: 1.6vh;
+  height: 7vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.98);
+  transition: color 1s ease;
+  margin-bottom: 0.5rem;
+}
+
+.news-card__post-date {
+  font-size: 1.4vh;
+  margin-bottom: 0.5rem;
+  color: #CCC;
+}
+
+.news-card__details-wrapper {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1.5s ease, opacity 1s ease;
+}
+
+@media (min-width: 900px) {
+  .news-card:hover .news-card__details-wrapper {
+    max-height: 20rem;
+    opacity: 1;
+  }
+  .news-card:hover .news-card__text-wrapper {
+    background-color: rgba(0, 0, 0, 0.76);
+  }
+  .news-card:hover .news-card__title {
+    color: rgba(255, 255, 255, 0.842);
+  }
+  .news-card:hover .news-card__image {
+    transform: scale(1.2);
+    z-index: -1;
+  }
+}
+
+.news-card__excerpt {
+  font-size: 2vh;
+}
+
+.news-card__read-more {
+  background: black;
+  color: #bbb;
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  border: 1px solid #444;
+  font-size: 1.6vh;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-decoration: none;
+  width: 7rem;
+  margin-left: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.news-card__read-more i {
+  position: relative;
+  left: 0.2rem;
+  color: rgba(255, 255, 255, 0.842);
+  transition: left 0.5s ease, color 0.6s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.news-card__read-more:hover i {
+  left: 0.5rem;
+  color: rgba(255, 255, 255, 0.842);
+}
+
+/************************************************
+********************** MOVIE  *******************
+************************************************/
+
+.movie-list{
+  margin: 30px 0;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.movie-list::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+}
+ 
+.movie-list::-webkit-scrollbar-track {
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+.movie-list::-webkit-scrollbar-thumb {
+  background-color: rgb(61, 61, 61);
+  outline: 1px solid slategrey;
+  border-radius: 50px;
+}
+
+.movie-card{
+  transition: all 1s;
+  margin: 20px 15px;
+}
+
+.movie-card:hover{
+  transform:  scale(1.08);
+  
+}
+
+.movie-poster {
+  width: 25vh;
+  height: 100%; 
+  border-radius: 16px;
+  object-fit: cover; 
+}
+

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FavIcon-->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1614/1614466.png" type="image/x-icon">
+
+    <!-- External stylesheets for Font Awesome, Google Fonts, Owl Carousel, and custom styles -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Noto+Sans:wght@100;300&display=swap" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="style.css" media="screen" />
+
+    <!-- Title for the web page -->
+    <title>MultiHub</title>
+</head>
+
+<body>
+    <!-- Initial screen with clock and login prompt -->
+    <div id="initial-screen" onclick="showLogin()" style="display: flex !important;">
+        <span id="clockLogin" style="color: white; font-size: 15vh !important; margin: 4vh 95vh -68vh 0vh !important; font-family: 'Konkhmer Sleokchher', sans-serif;font-weight: 400; text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);"></span>
+        <h2> Clique em qualquer lugar para Entrar </h2>
+    </div>
+
+    <!-- Login container with form -->
+    <div id="login-container" style="display: none;">
+        <button id="logout-button" onclick="logout()"><i class="fa-solid fa-arrow-right fa-rotate-180" style="color: #ffffffd9; margin: 0 9px 0 0 !important;"></i>Logout</button>
+        <form id="login-form" onsubmit="return checkLogin()">
+            <div id="password-input">
+                <!-- Four input fields for PIN -->
+                <input type="text" maxlength="1" oninput="moveToNextInput(this)" required autofocus>
+                <input type="text" maxlength="1" oninput="moveToNextInput(this)" required>
+                <input type="text" maxlength="1" oninput="moveToNextInput(this)" required>
+                <input type="text" maxlength="1" oninput="moveToNextInput(this)" required>
+                <!-- Submit button -->
+                <button type="submit" style="background: none; border: none; color: #ffffff8a; font-size: 3vh;"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <p>Insira o PIN '1234'</p>
+            <!-- Error message display -->
+            <div class="error-message" id="error-message"> </div>
+        </form>
+    </div>
+
+    <!-- Main application container -->
+    <div id="app-container" style="display: none;">
+        <!-- Logout button -->
+        <button id="logout-button" onclick="logout()"><i class="fa-solid fa-arrow-right fa-rotate-180" style="color: #ffffffd9; margin: 0 9px 0 0 !important;"></i>Logout</button>
+
+        <!-- Information container with clock, weather, and other details -->
+        <div id="infoContainer">
+            <div class="row">
+                <span id="clock"></span>
+                <div class="weather-info">
+                    <!-- Weather icon and current weather details -->
+                    <i id="weather-icon" class="weather-icon"></i>
+                    <div id="current-weather" class="current-weather"></div>
+                </div>
+            </div>
+
+            <!-- Additional information container -->
+            <div class="info-container" style="margin: -4vh 0vh 0vh 0vh !important;">
+                <div id="current-day"></div>
+                <div id="current-date"></div>
+                <div id="current-city"></div>
+            </div>
+        </div>
+
+        <!-- Main navigation section with links to different app sections -->
+        <main role="main">
+            <a href="#app-section"><span class="tag">Aplicativos</span></a>
+            <a href="#news-section"><span class="tag">Notícias</span></a>
+            <a href="#movie-section"><span class="tag">Filmes</span></a>
+        </main>
+
+        <!-- Weather list section -->
+        <div class="weatherList">
+            <ul id="city-list"></ul>
+            <div id="weather-info-container"></div>
+        </div>
+
+        <!-- Apps section with different app categories -->
+        <section class="appssection" id="app-section">
+            <!-- Weather app -->
+            <div class="appSection" id="weather-section">
+                <div class="itemApp">
+                    <p>clima</p>
+                    <h3>INMET</h3>
+                    <i class="fa-solid fa-cloud-sun" style="font-size: 6vh;margin-top: 20%;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"></i>
+                </div>
+            </div>
+
+            <!-- Music app -->
+            <div class="appSection" id="music-section">
+                <div class="itemApp">
+                    <p>musica</p>
+                    <h3>SPOTIFY</h3>
+                    <i class="fa-brands fa-spotify" style="font-size: 6vh;margin-top: 20%;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"></i>
+                </div>
+            </div>
+
+            <!-- Games app -->
+            <div class="appSection" id="games-section">
+                <div class="itemApp">
+                    <p>jogos</p>
+                    <h3>XBOX</h3>
+                    <i class="fa-brands fa-xbox" style="font-size: 6vh;margin-top: 20%;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"></i>
+                </div>
+            </div>
+
+            <!-- Calculator app -->
+            <div class="appSection" id="calculator-section">
+                <div class="itemApp">
+                    <p>calc</p>
+                    <h3>CALCULADORA</h3>
+                    <i class="fa-solid fa-calculator" style="font-size: 6vh;margin-top: 20%;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"></i>
+                </div>
+            </div>
+
+            <!-- Notes app -->
+            <div class="appSection" id="notes-section">
+                <div class="itemApp">
+                    <p>notes</p>
+                    <h3>BLOCO DE NOTAS</h3>
+                    <i class="fa-solid fa-file" style="font-size: 6vh;margin-top: 20%;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- News section -->
+        <div class="sectionTitle"style="margin: 3% 0% 3% 1% !important;">
+            <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+            <span class="menu-section-title-text">Notícias</span>
+        </div>
+
+        <!-- News cards section -->
+        <section class="news-section" id="news-section">
+            <div class="content-wrapper">
+
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://png.pngtree.com/thumb_back/fh260/background/20230614/pngtree-buddhist-meditation-on-ocean-image_2915043.jpg" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title">Empresa XYZ Lança App Revolucionário de Saúde Mental</h2>
+                    <div class="news-card__post-date">Mar 12, 2023</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt">Descubra como o novo aplicativo da XYZ está transformando a abordagem da saúde mental com recursos inovadores e acessíveis.&hellip;</p>
+                      <a href="#" class="news-card__read-more">Saiba mais <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://fia.com.br/wp-content/uploads/2022/06/cidades-sustentaveis-o-que-sao-caracteristicas-exemplos.jpg" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title">Cidade ABC Adota Energia Renovável em 90% de suas Operações</h2>
+                    <div class="news-card__post-date">Mai 29, 2019</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt">A cidade ABC dá um passo significativo em direção à sustentabilidade, alcançando uma marca impressionante de 90% de energia renovável.&hellip;</p>
+                      <a href="#" class="news-card__read-more">Saiba mais  <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://www.sigsinergia.com.br/wp-content/uploads/realidade-virtual.jpg" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title"> Escola DEF Integra Realidade Virtual ao Currículo de Ciências</h2>
+                    <div class="news-card__post-date">Jun 05, 2016</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt">A Escola DEF revoluciona a educação ao introduzir a realidade virtual nas aulas de ciências, proporcionando uma experiência única de aprendizado.&hellip;</p>
+                      <a href="#" class="news-card__read-more">Saiba mais  <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title">Incubadora de Empresas GHI Impulsiona Novos Negócios</h2>
+                    <div class="news-card__post-date">Set 29, 2012</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt"> Conheça as histórias de sucesso das startups locais que prosperaram com o apoio e orientação da incubadora de empresas GHI.</p>
+                      <a href="#" class="news-card__read-more">Saiba mais  <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2023/10/processo-quimico-faz-peptideo-adquirir-estrutura-similar-a-encontrada-em-doencas-neurodegenerativas.jpg" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title"> Pesquisadores Descobrem Nova Terapia contra Doenças Neurodegenerativas</h2>
+                    <div class="news-card__post-date">Nov 18, 2018</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt"> Pesquisadores da Universidade JKL revelam uma promissora terapia que pode revolucionar o tratamento de doenças neurodegenerativas.&hellip;</p>
+                      <a href="#" class="news-card__read-more">Saiba mais  <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+                <div class="news-card">
+                  <a href="#" class="news-card__card-link"></a>
+                  <img src="https://images.unsplash.com/photo-1572947650440-e8a97ef053b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="news-card__image">
+                  <div class="news-card__text-wrapper">
+                    <h2 class="news-card__title"> Exposição de Obras Virtuais na Galeria MNO Atrai Multidões</h2>
+                    <div class="news-card__post-date">Dez 12, 2015</div>
+                    <div class="news-card__details-wrapper">
+                      <p class="news-card__excerpt">A Galeria MNO celebra a expressão artística digital com uma exposição cativante que destaca a inovação no mundo das artes.</p>
+                      <a href="#" class="news-card__read-more">Saiba mais <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+             
+              </div>
+        </section>
+
+        <!-- Films section -->
+        <div class="sectionTitle"style="margin: 3% 0% 3% 1% !important;">
+            <i class="fa-solid fa-film" aria-hidden="true"></i>
+            <span class="menu-section-title-text">Filmes</span>
+        </div>
+
+        <!-- Movie cards section -->
+        <section id="movie-section" id="movie-section">
+            <div class="movie-list">
+                <div class="movie-card">
+                    <img src="https://www.correiodopovo.com.br/image/policy:1.916848/AvatarOCaminhodaAgua_P%C3%B4ster.jpg?f=default&w=900&q=0.6" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://wallpapercave.com/wp/wp11450744.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/71BokibfVUL.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://uauposters.com.br/media/catalog/product/4/5/454520230615-uau-posters-barbie-2023-filmes-1.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://img.elo7.com.br/product/zoom/2A1A4BF/big-poster-filme-joker-coringa-joaquin-phoenix-lo02-90x60-cm-poster.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://br.web.img2.acsta.net/pictures/19/10/29/15/15/3552774.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/153/860/948/movie-poster-star-wars-star-wars-the-rise-of-skywalker-2019-year-movies-hd-wallpaper-preview.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://i.pinimg.com/736x/10/69/df/1069dfcc9d95dbb484ba3d5fbc785ca1.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://play-lh.googleusercontent.com/GKaEXYJKft19cv2YyXrFpVGStPqCXfJ_zp0Mbc5iKkJvIcnwVCw9nj0I4b1-DCxpK3nh" alt="movie poster" class="movie-poster">
+                </div>
+                <div class="movie-card">
+                    <img src="https://apostiladecinema.com.br/wp-content/uploads/2021/01/soul-poster-scaled.jpg" alt="movie poster" class="movie-poster">
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- End app-container -->
+
+    <!-- External JavaScript libraries and custom script -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
